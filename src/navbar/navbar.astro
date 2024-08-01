@@ -1,0 +1,68 @@
+---
+import Plant1 from '../components/svg/plant1.astro'
+import Plant2 from '../components/svg/plant2.astro'
+import Plant3 from '../components/svg/plant3.astro'
+import Plant4 from '../components/svg/plant4.astro'
+
+const svgIcons: Record<string, any> = {
+  Plant1,
+  Plant2,
+  Plant3,
+  Plant4
+}
+
+const menuitems = [
+  {
+    title: 'Inicio',
+    path: '/',
+    icon: 'Plant4'
+  },
+  {
+    title: 'Romero',
+    path: '/romero',
+    icon: 'Plant2'
+  },
+  {
+    title: 'Orégano',
+    path: '/oregano',
+    icon: 'Plant3'
+  },
+  {
+    title: 'Lavanda',
+    path: '/lavanda',
+    icon: 'Plant1'
+  }
+]
+
+const currentPath = Astro.url.pathname
+---
+
+<ul class='flex flex-col justify-center lg:flex-row text-lg lg:gap-5 pt-8'>
+  {
+    menuitems.map((item) => {
+      const Icon = svgIcons[item.icon]
+
+      return (
+        <>
+          {item && (
+            <li>
+              <a
+                href={item.path}
+                class={
+                  currentPath === item.path
+                    ? 'flex py-2 font-bold items-center bg-[#CCD5AE] rounded-md px-1'
+                    : 'flex py-2 font-bold items-center text-[#4b8154] bg-[#CCD5AE] rounded-md px-1'
+                }>
+                <span class='flex items-center gap-x-1'>
+                  {' '}
+                  {item.title}
+                  <Icon />
+                </span>
+              </a>
+            </li>
+          )}
+        </>
+      )
+    })
+  }
+</ul>

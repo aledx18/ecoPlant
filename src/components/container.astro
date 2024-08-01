@@ -1,0 +1,48 @@
+---
+const { class: className, name } = Astro.props
+
+const grid = [
+  {
+    name: 'bg-[#cddbb8]',
+    description: `...`
+  },
+  {
+    name: 'bg-[#D6EFD8] text-6xl text-[#1A5319] font-semibold flex justify-center items-center',
+    description: `${name}`
+  },
+  {
+    name: 'row-span-2 col-start-1 row-start-2 bg-[#EDF1D6]',
+    description:
+      'Creates a grid with 3 columns lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  },
+  {
+    name: 'col-span-2 row-span-2 bg-[#4b8154]',
+    description: 'Creates a grid with 4sss columns'
+  },
+  {
+    name: 'col-start-4 row-start-2 bg-[#80AF81]',
+    description: 'Creates a grid with 5 columns'
+  },
+  {
+    name: 'col-span-2 col-start-3 row-start-1 bg-[#6b9e6f]',
+    description: 'Creates a grid with 6 columns'
+  },
+  {
+    name: 'col-start-4 row-start-3 bg-[#91C788]',
+    description: 'Creates a grid with 9 columns'
+  }
+]
+---
+
+<!-- <div class:list={['max-w-screen-xl mx-auto px-5', className]}>
+  <slot />
+</div> -->
+<div class='grid grid-cols-4 grid-rows-3 gap-4 h-full p-12'>
+  {
+    grid.map((item) => (
+      <div class={`${item.name} rounded-xl p-4`}>{item.description}</div>
+    ))
+  }
+</div>
+
+<!-- bg-[#e9edc9]  bg-[#add3a1]-->

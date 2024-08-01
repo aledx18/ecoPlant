@@ -1,0 +1,76 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import Navbar from '../navbar/navbar.astro'
+import '@fontsource-variable/rubik'
+import '@fontsource/poppins'
+
+export interface Props {
+  title: string
+}
+
+// const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
+
+// const resolvedImageWithDomain = new URL('/opengraph.png', Astro.site).toString()
+
+// const { title } = Astro.props
+
+// const makeTitle = title
+//   ? title + ' | ' + 'InfoCrip'
+//   : 'InfoCrip - Informática Forense'
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <ViewTransitions />
+    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
+    <!-- <script is:inline src='https://unpkg.com/lenis@1.1.2/dist/lenis.min.js'
+    ></script>
+    <script is:inline>
+      const lenis = new Lenis()
+      function raf(time) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+      }
+      requestAnimationFrame(raf)
+    </script> -->
+    <!-- <SEO
+      title={makeTitle}
+      description='InfoCrip || Informática Forense '
+      twitter={{
+        creator: '@',
+        site: '@',
+        card: 'summary_large_image'
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: 'website',
+          title: `InfoCrip - Informática Forense`,
+          image: resolvedImageWithDomain
+        },
+        image: {
+          alt: 'Astroship Homepage Screenshot'
+        }
+      }}
+    /> -->
+  </head>
+  <body class='h-svh flex flex-col'>
+    <Navbar />
+    <slot />
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>
