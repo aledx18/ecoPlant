@@ -13,8 +13,8 @@ const svgIcons: Record<string, any> = {
 
 const menuitems = [
   {
-    title: 'Inicio',
-    path: '/',
+    title: 'Albahaca',
+    path: '/albahaca',
     icon: 'Plant4'
   },
   {
@@ -37,7 +37,7 @@ const menuitems = [
 const currentPath = Astro.url.pathname
 ---
 
-<ul class='flex flex-col justify-center lg:flex-row text-lg lg:gap-5 pt-8'>
+<ul class='flex justify-center text-sm p-4 lg:text-lg lg:gap-5 lg:pt-8'>
   {
     menuitems.map((item) => {
       const Icon = svgIcons[item.icon]
@@ -45,13 +45,13 @@ const currentPath = Astro.url.pathname
       return (
         <>
           {item && (
-            <li>
+            <li class=' text-[#24a450]'>
               <a
                 href={item.path}
                 class={
                   currentPath === item.path
-                    ? 'flex py-2 font-bold items-center bg-[#CCD5AE] rounded-md px-1'
-                    : 'flex py-2 font-bold items-center text-[#4b8154] bg-[#CCD5AE] rounded-md px-1'
+                    ? 'flex py-2 font-bold items-center bg-[#d3eddc] rounded-md px-1'
+                    : 'flex py-2 font-bold items-center rounded-md px-1 hover:bg-[#d3eddc] transition-all duration-300'
                 }>
                 <span class='flex items-center gap-x-1'>
                   {' '}
@@ -66,3 +66,4 @@ const currentPath = Astro.url.pathname
     })
   }
 </ul>
+<!-- text-[#4b8154] -->

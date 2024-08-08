@@ -1,8 +1,52 @@
 ---
 import Container from '../components/container.astro'
 import Layout from '../layout/Layout.astro'
+
+const info = {
+  name: 'Lavanda',
+  description:
+    'La lavanda es una planta perenne muy popular por sus hermosas flores violetas y su aroma relajante.',
+  characteristics: [
+    {
+      first: 'La lavanda crece hasta 60 cm de altura y 90 cm de ancho.',
+      second: 'Prefiere suelos bien drenados y secos, con un pH entre 6 y 7.',
+      third: 'Requiere pleno sol (al menos 6 horas de sol directo).',
+      fourth: 'Es resistente a la sequía, pero prefiere riegos regulares.',
+      fifth:
+        'Florece en verano, produciendo flores violetas en forma de espiga.'
+    }
+  ],
+  care: [
+    {
+      first:
+        'Plantar en un lugar con buena ventilación para prevenir enfermedades.',
+      second: 'Regar regularmente, pero evitar encharcamientos.',
+      third: 'Fertilizar en primavera con un fertilizante equilibrado.',
+      fourth:
+        'Podar regularmente para estimular el crecimiento y prevenir la floración.',
+      fifth: 'Proteger del viento y el frío extremo.'
+    }
+  ],
+  uses: [
+    {
+      first: 'Jardinería ornamental',
+      second: 'Aceites esenciales para relajación y bienestar',
+      third: 'Medicina herbal (para calmar dolores y mejorar el sueño)',
+      fourth: 'Cocina (como condimento o en repostería)'
+    }
+  ],
+  tips: [
+    {
+      first: '...',
+      second: '...',
+      third: '...'
+    }
+  ],
+  additional:
+    'Recuerda que la lavanda es una planta relativamente fácil de cuidar, pero requiere atención regular para mantener su belleza y aroma. ¡Disfruta de esta hermosa planta!'
+}
 ---
 
 <Layout title='Lavanda'>
-  <Container name='Lavanda' />
+  <Container info={info} />
 </Layout>

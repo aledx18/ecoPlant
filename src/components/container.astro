@@ -1,46 +1,83 @@
 ---
-const { class: className, name } = Astro.props
+const { info } = Astro.props
 
 const grid = [
   {
-    name: 'bg-[#cddbb8]',
-    description: `...`
+    name: 'bg-[#203c26] col-span-1 row-span-1 text-white',
+    description: `asdasdasd`
   },
   {
-    name: 'bg-[#D6EFD8] text-6xl text-[#1A5319] font-semibold flex justify-center items-center',
-    description: `${name}`
+    name: 'bg-[#D6EFD8] lg:text-6xl text-lg text-[#1A5319] font-semibold col-span-1',
+    description: `${info.name}`
   },
   {
-    name: 'row-span-2 col-start-1 row-start-2 bg-[#EDF1D6]',
+    name: 'col-span-2 bg-[#EDF1D6]',
     description:
-      'Creates a grid with 3 columns lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      'Creates a grid with 3 columnua. Ut enim ad minin reprehenderit in votat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
   },
   {
-    name: 'col-span-2 row-span-2 bg-[#4b8154]',
-    description: 'Creates a grid with 4sss columns'
+    name: 'row-span-2 row-start-3 bg-[#4b8154]',
+    description: 'Creates a grid with 4ssssadasd'
   },
   {
-    name: 'col-start-4 row-start-2 bg-[#80AF81]',
+    name: 'row-start-3 bg-[#80AF81]',
     description: 'Creates a grid with 5 columns'
   },
   {
-    name: 'col-span-2 col-start-3 row-start-1 bg-[#6b9e6f]',
-    description: 'Creates a grid with 6 columns'
+    name: 'col-start-2 row-start-4 shadow-sm bg-[#82b444] lg:text-2xl text-sm font-semibold flex justify-center items-center',
+    description: `${info.description}`,
+    classDiv: 'text-white'
   },
   {
-    name: 'col-start-4 row-start-3 bg-[#91C788]',
+    name: 'col-span-2 row-start-5 bg-[#91C788]',
     description: 'Creates a grid with 9 columns'
   }
 ]
+
+// const grid = [
+//   {
+//     name: 'bg-[#203c26] lg:col-span-1 col-span-2 text-white',
+//     description: `asdasdasd`
+//   },
+//   {
+//     name: 'bg-[#D6EFD8] text-6xl text-[#1A5319] font-semibold flex justify-center items-center ',
+//     description: `${info.name}`
+//   },
+//   {
+//     name: 'row-span-2 col-start-1 row-start-2 bg-[#EDF1D6]',
+//     description:
+//       'Creates a grid with 3 columnua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+//   },
+//   {
+//     name: 'lg:col-span-2 row-span-2 bg-[#4b8154]',
+//     description: 'Creates a grid with 4ssssadasdasdasddasdasdas'
+//   },
+//   {
+//     name: 'col-start-4 row-start-2 bg-[#80AF81]',
+//     description: 'Creates a grid with 5 columns'
+//   },
+//   {
+//     name: 'lg:col-span-2 lg:col-start-3 lg:row-start-1 col-span-1 shadow-sm bg-[#82b444] text-2xl font-semibold flex justify-center items-center',
+//     description: `${info.description}`,
+//     classDiv: 'text-white'
+//   },
+//   {
+//     name: 'lg:col-start-4 lg:row-start-3 bg-[#91C788]',
+//     description: 'Creates a grid with 9 columns'
+//   }
+// ]
 ---
 
 <!-- <div class:list={['max-w-screen-xl mx-auto px-5', className]}>
   <slot />
 </div> -->
-<div class='grid grid-cols-4 grid-rows-3 gap-4 h-full p-12'>
+<div
+  class='grid grid-cols-2 grid-rows-5 gap-4 p-2 lg:grid-cols-4 lg:grid-rows-3 h-full lg:p-12'>
   {
     grid.map((item) => (
-      <div class={`${item.name} rounded-xl p-4`}>{item.description}</div>
+      <div class={`${item.name} rounded-xl p-4`}>
+        <div class={`${item.classDiv} rounded-xl p-4`}>{item.description}</div>
+      </div>
     ))
   }
 </div>
