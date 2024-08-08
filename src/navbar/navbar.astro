@@ -33,8 +33,9 @@ const menuitems = [
     icon: 'Plant1'
   }
 ]
-console.log(Astro.url)
 const currentPath = Astro.url.pathname
+const url = Astro.url
+console.log(url, currentPath)
 ---
 
 <ul class='flex justify-center text-sm p-4 lg:text-lg lg:gap-5 lg:pt-8'>

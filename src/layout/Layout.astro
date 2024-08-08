@@ -8,7 +8,13 @@ export interface Props {
   title: string
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
+function removeTrailingSlash(str: string) {
+  return str.replace(/\/+$/, '')
+}
+
+const canonicalUrl = removeTrailingSlash(
+  new URL(Astro.url.pathname, Astro.site).toString()
+)
 
 // const resolvedImageWithDomain = new URL('/opengraph.png', Astro.site).toString()
 
@@ -25,7 +31,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <link rel='canonical' href={canonicalURL} />
+    <link rel='canonical' href={canonicalUrl} />
     <meta name='generator' content={Astro.generator} />
     <ViewTransitions />
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
