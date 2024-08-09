@@ -1,14 +1,22 @@
 ---
+import Height from './svg/height.astro'
+import Sun from './svg/sun.astro'
+
 const { info } = Astro.props
+
+const svgIcons: Record<string, any> = {
+  Sun,
+  Height
+}
 
 const grid = [
   {
-    name: 'bg-[#203c26] col-span-1 row-span-1 text-white',
-    description: `asdasdasd`
+    name: 'bg-[#D6EFD8] lg:text-6xl text-3xl items-center flex justify-center text-[#1A5319] font-semibold col-span-1',
+    description: `${info.name}`
   },
   {
-    name: 'bg-[#D6EFD8] lg:text-6xl text-lg text-[#1A5319] font-semibold col-span-1',
-    description: `${info.name}`
+    name: 'bg-[#203c26] col-span-1 row-span-1 text-white lg:text-2xl text-sm font-semibold flex justify-center items-center',
+    description: `${info.description}`
   },
   {
     name: 'col-span-2 bg-[#EDF1D6]',
@@ -16,25 +24,63 @@ const grid = [
       'Creates a grid with 3 columnua. Ut enim ad minin reprehenderit in votat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
   },
   {
-    name: 'row-span-2 row-start-3 bg-[#4b8154]',
+    name: 'row-span-2 row-start-3 bg-slate-100 shadow-sm',
     description: 'Creates a grid with 4ssssadasd'
   },
   {
-    name: 'row-start-3 bg-[#80AF81]',
-    description: 'Creates a grid with 5 columns'
+    name: 'row-start-3 bg-[#80AF81] flex justify-center items-center bg-[#82b444] text-white',
+    description: '',
+    icon: ['Height', 'Sun']
   },
   {
-    name: 'col-start-2 row-start-4 shadow-sm bg-[#82b444] lg:text-2xl text-sm font-semibold flex justify-center items-center',
-    description: `${info.description}`,
+    name: 'col-start-2 row-start-4 shadow-sm bg-green-800 lg:text-2xl text-sm font-semibold flex justify-center items-center',
+    description: 'asdas',
     classDiv: 'text-white'
   },
   {
-    name: 'col-span-2 row-start-5 bg-[#91C788]',
-    description: 'Creates a grid with 9 columns'
+    name: 'col-span-2 row-start-5 bg-[#91C788] font-semibold',
+    description: `${info.additional}`
   }
 ]
+---
 
-// const grid = [
+<div
+  class='grid grid-cols-2 grid-rows-5 gap-4 p-2 lg:grid-cols-4 lg:grid-rows-3 h-full lg:p-12'>
+  {
+    grid.map((item) => {
+      return (
+        <div class={`${item.name} rounded-xl p-4`}>
+          {item.description && (
+            <div class={`${item.classDiv} rounded-xl p-4`}>
+              {item.description}
+            </div>
+          )}
+          {item.icon && (
+            <div class='flex justify-center items-center flex-col gap-y-4'>
+              {item.icon.map((iconName) => {
+                const Icon = svgIcons[iconName]
+                return (
+                  <div class='flex gap-2'>
+                    <span class='rounded-full bg-[#add3a1] p-2'>
+                      <Icon />
+                    </span>
+                    <div class='flex flex-col text-sm font-semibold'>
+                      <p>Altura maxima</p>
+                      <p class='font-normal'>6 cm.</p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </div>
+      )
+    })
+  }
+</div>
+
+<!-- bg-[#e9edc9]  bg-[#add3a1]-->
+<!-- // const grid = [
 //   {
 //     name: 'bg-[#203c26] lg:col-span-1 col-span-2 text-white',
 //     description: `asdasdasd`
@@ -65,21 +111,4 @@ const grid = [
 //     name: 'lg:col-start-4 lg:row-start-3 bg-[#91C788]',
 //     description: 'Creates a grid with 9 columns'
 //   }
-// ]
----
-
-<!-- <div class:list={['max-w-screen-xl mx-auto px-5', className]}>
-  <slot />
-</div> -->
-<div
-  class='grid grid-cols-2 grid-rows-5 gap-4 p-2 lg:grid-cols-4 lg:grid-rows-3 h-full lg:p-12'>
-  {
-    grid.map((item) => (
-      <div class={`${item.name} rounded-xl p-4`}>
-        <div class={`${item.classDiv} rounded-xl p-4`}>{item.description}</div>
-      </div>
-    ))
-  }
-</div>
-
-<!-- bg-[#e9edc9]  bg-[#add3a1]-->
+// ] -->

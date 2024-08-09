@@ -1,57 +1,33 @@
 ---
 import Layout from '../layout/Layout.astro'
-import Container from '../components/container.astro'
 
-const info = {
-  name: 'Albahaca',
-  description:
-    'La albahaca es una planta aromática muy popular por su sabor y aroma intenso.',
-  characteristics: [
-    {
-      first: 'La albahaca es una planta anual que crece hasta 60 cm de altura.',
-      second: 'Prefiere suelos bien drenados y húmedos, con un pH entre 6 y 7.',
-      third: 'Requiere pleno sol (al menos 4 horas de sol directo).',
-      fourth: 'Es sensible a la sequía, por lo que requiere riegos regulares.',
-      fifth:
-        'Florece en verano, produciendo flores pequeñas de color blanco o púrpura.'
-    }
-  ],
-  care: [
-    {
-      first:
-        'Plantar en un lugar con buena ventilación para prevenir enfermedades.',
-      second: 'Regar regularmente, pero evitar encharcamientos.',
-      third: 'Fertilizar en primavera con un fertilizante equilibrado.',
-      fourth:
-        'Podar regularmente para estimular el crecimiento y prevenir la floración.',
-      fifth: 'Proteger del viento y el frío extremo.'
-    }
-  ],
-  uses: [
-    {
-      first:
-        'Cocina (como condimento para platos de pasta, pizza, ensaladas y salsas)',
-      second:
-        'Medicina herbal (para mejorar la digestión y combatir infecciones)',
-      third: 'Jardinería ornamental',
-      fourth: 'Repelente natural para insectos'
-    }
-  ],
-  tips: [
-    {
-      first:
-        'La albahaca es una planta sensible al frío, por lo que es recomendable cultivarla en interiores o en un lugar protegido durante el invierno.',
-      second:
-        'Puedes cultivar albahaca en macetas, asegurándote de que tenga suficiente espacio para crecer.',
-      third:
-        'La albahaca es una planta que se puede propagar fácilmente a través de esquejes o semillas.'
-    }
-  ],
-  additional:
-    'Recuerda que la albahaca es una planta delicada que requiere cuidado y atención regular para mantener su salud y aroma. ¡Disfruta de esta deliciosa hierba!'
-}
+const grid = [
+  {
+    name: 'bg-[#203c26]',
+    description: `asdasdasd`
+  },
+  {
+    name: 'bg-[#D6EFD8]',
+    description: `dfgfdg`
+  },
+  {
+    name: 'bg-[#EDF1D6]',
+    description:
+      'Creates a grid with 3 columnua. Ut enim ad minin reprehenderit in votat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  },
+  {
+    name: 'bg-[#4b8154]',
+    description: 'Creates a grid with 4ssssadasd'
+  }
+]
 ---
 
 <Layout title='Albahaca'>
-  <Container info={info} />
+  <div class='grid grid-cols-2 grid-rows-2 gap-4 px-4 py-20 h-full'>
+    {
+      grid.map((item) => (
+        <div class={`${item.name} rounded-xl p-4`}>{item.description}</div>
+      ))
+    }
+  </div>
 </Layout>
