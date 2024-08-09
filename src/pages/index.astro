@@ -3,30 +3,52 @@ import Layout from '../layout/Layout.astro'
 
 const grid = [
   {
-    name: 'bg-[#203c26]',
-    description: `asdasdasd`
+    name: '',
+    description: ``,
+    urlImage:
+      'https://res.cloudinary.com/dpbhmwmwm/image/upload/v1723168054/albhaca_vxllvn.webp',
+    path: '/albahaca'
   },
   {
-    name: 'bg-[#D6EFD8]',
-    description: `dfgfdg`
+    name: '',
+    description: ``,
+    urlImage:
+      'https://res.cloudinary.com/dpbhmwmwm/image/upload/v1723168466/romero_red18j.webp',
+    path: '/romero'
   },
   {
-    name: 'bg-[#EDF1D6]',
-    description:
-      'Creates a grid with 3 columnua. Ut enim ad minin reprehenderit in votat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    name: '',
+    description: '',
+    urlImage:
+      'https://res.cloudinary.com/dpbhmwmwm/image/upload/v1723168036/oregan_bdhww1.png',
+    path: '/oregano'
   },
   {
-    name: 'bg-[#4b8154]',
-    description: 'Creates a grid with 4ssssadasd'
+    name: '',
+    description: '',
+    urlImage:
+      'https://res.cloudinary.com/dpbhmwmwm/image/upload/v1723168385/lavanda_k993iq.webp',
+    path: '/lavanda'
   }
 ]
+
+// href={Astro.url`${info.additional}`}
 ---
 
-<Layout title='Albahaca'>
-  <div class='grid grid-cols-2 grid-rows-2 gap-4 px-4 py-20 h-full'>
+<Layout title='Inicio'>
+  <div class='flex flex-col justify-center gap-4 h-svh'>
     {
       grid.map((item) => (
-        <div class={`${item.name} rounded-xl p-4`}>{item.description}</div>
+        <a
+          href={item.path}
+          class={`${item.name} rounded-xl p-2 border-2 border-[#5bba6f] flex justify-center items-center`}>
+          {item.description}
+          <img
+            src={item.urlImage}
+            alt='image'
+            class='object-contain w-40 h-40'
+          />
+        </a>
       ))
     }
   </div>

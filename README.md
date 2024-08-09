@@ -1,18 +1,8 @@
-# Astro Starter Kit: Minimal
-
-```sh
-npm create astro@latest -- --template minimal
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
 ## 🚀 Info
 
-La lavanda es una planta perenne muy popular por sus hermosas flores violetas y su aroma relajante. Aquí te presento algunas características y cuidados básicos para cultivar lavanda:
+_lavanda_
+
+es una planta perenne muy popular por sus hermosas flores violetas y su aroma relajante.
 
 Características:
 
@@ -38,7 +28,8 @@ Algunos usos de la lavanda incluyen:
 - Medicina herbal (para calmar dolores y mejorar el sueño)
 
 Recuerda que la lavanda es una planta relativamente fácil de cuidar, pero requiere atención regular para mantener su belleza y aroma. ¡Disfruta de esta hermosa planta!
-[16:21, 1/8/2024] Flor: Romero El romero es una planta aromática muy popular por su sabor y aroma intenso. Aquí te presento algunas características y cuidados básicos para cultivar romero:
+
+_Romero_
 
 Características:
 
@@ -68,7 +59,8 @@ Tips adicionales:
 - El romero es una planta muy fragante, así que es recomendable plantarla en un lugar donde su aroma pueda ser apreciado.
 - Puedes cultivar romero en macetas, asegurándote de que tenga suficiente espacio para crecer.
 - El romero es una planta relativamente fácil de cuidar, pero requiere atención regular para mantener su salud y aroma.
-  [16:22, 1/8/2024] Flor: *Oregano*El orégano es una planta aromática muy popular por su sabor y aroma intenso. Aquí te presento algunas características y cuidados básicos para cultivar orégano:
+
+_Oregano_:
 
 Características:
 
@@ -103,7 +95,7 @@ Recuerda que el orégano es una planta que se puede cultivar en interiores, siem
 
 ---
 
-Flor: *albahaca*La albahaca es una planta aromática muy popular por su sabor y aroma intenso. Aquí te presento algunas características y cuidados básicos para cultivar albahaca:
+_albahaca_:
 
 Características:
 

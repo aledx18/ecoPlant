@@ -36,7 +36,8 @@ const menuitems = [
 const currentPath = Astro.url.pathname
 ---
 
-<ul class='flex justify-center text-sm gap-x-2 p-4 lg:text-lg lg:gap-5 lg:pt-8'>
+<ul
+  class='flex justify-center text-sm gap-x-0.5 p-4 lg:text-lg lg:gap-5 lg:pt-8'>
   {
     menuitems.map((item) => {
       const Icon = svgIcons[item.icon]

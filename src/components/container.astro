@@ -1,12 +1,16 @@
 ---
 import Height from './svg/height.astro'
 import Sun from './svg/sun.astro'
+import Humedad from './svg/humedad.astro'
+import Primavera from './svg/primavera.astro'
 
 const { info } = Astro.props
 
 const svgIcons: Record<string, any> = {
   Sun,
-  Height
+  Height,
+  Humedad,
+  Primavera
 }
 
 const grid = [
@@ -15,30 +19,35 @@ const grid = [
     description: `${info.name}`
   },
   {
-    name: 'bg-[#203c26] col-span-1 row-span-1 text-white lg:text-2xl text-sm font-semibold flex justify-center items-center',
+    name: 'bg-[#3fa34d] col-span-1 row-span-1 text-white lg:text-2xl text-sm font-semibold flex justify-center items-center',
     description: `${info.description}`
   },
   {
-    name: 'col-span-2 bg-[#EDF1D6]',
-    description:
-      'Creates a grid with 3 columnua. Ut enim ad minin reprehenderit in votat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    name: 'col-span-2 bg-[#5bba6f] shadow-sm',
+    uses: info.uses.map((use: any) => ({ text: use }))
   },
   {
-    name: 'row-span-2 row-start-3 shadow-sm',
+    name: 'row-span-2 row-start-3 shadow-md border-2 border-[#44a453]',
     image: `${info.image}`
   },
   {
-    name: 'row-start-3 bg-[#80AF81] flex justify-center items-center bg-[#82b444] text-white',
+    name: 'row-start-3 flex justify-center items-center shadow-md border-2 border-[#5bba6f]',
     description: '',
-    icon: ['Height', 'Sun']
+    firstIcons: [
+      { name: 'Height', text: 'Altura max.', value: `${info.height}` },
+      { name: 'Sun', text: 'Sol directo', value: `${info.sun}` }
+    ]
   },
   {
-    name: 'col-start-2 row-start-4 shadow-sm bg-green-800 lg:text-2xl text-sm font-semibold flex justify-center items-center',
-    description: 'asdas',
-    classDiv: 'text-white'
+    name: 'col-start-2 row-start-4 shadow-md border-2 border-[#5bba6f] text-sm font-semibold flex justify-center items-center',
+    description: '',
+    secondIcons: [
+      { name: 'Humedad', text: 'Humedad', value: `${info.ph}` },
+      { name: 'Primavera', text: 'Florece color', value: `${info.flowers}` }
+    ]
   },
   {
-    name: 'col-span-2 row-start-5 bg-[#91C788] font-semibold',
+    name: 'col-span-2 row-start-5 bg-[#91C788]',
     description: `${info.additional}`
   }
 ]
@@ -53,23 +62,44 @@ const grid = [
           {item.image && (
             <img src={item.image} alt='image' class=' h-full object-cover' />
           )}
-          {item.description && (
-            <div class={`${item.classDiv} rounded-xl p-4`}>
-              {item.description}
-            </div>
+          {item.description && <div class={`p-4`}>{item.description}</div>}
+          {item.uses && (
+            <ul class='text-sm p-4 list-disc list-inside'>
+              {item.uses.map((use: { text: string }) => (
+                <li>{use.text}</li>
+              ))}
+            </ul>
           )}
-          {item.icon && (
+          {item.firstIcons && (
             <div class='flex justify-center items-center flex-col gap-y-4'>
-              {item.icon.map((iconName) => {
-                const Icon = svgIcons[iconName]
+              {item.firstIcons.map(({ name, text, value }) => {
+                const Icon = svgIcons[name]
                 return (
-                  <div class='flex gap-2'>
-                    <span class='rounded-full bg-[#add3a1] p-2'>
+                  <div class='flex gap-2 w-full'>
+                    <span class='rounded-full bg-[#d7efd9] p-2'>
                       <Icon />
                     </span>
                     <div class='flex flex-col text-sm font-semibold'>
-                      <p>Altura maxima</p>
-                      <p class='font-normal'>6 cm.</p>
+                      <p>{text}</p>
+                      <p class='font-normal'>{value}</p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+          {item.secondIcons && (
+            <div class='flex justify-center items-center flex-col gap-y-4'>
+              {item.secondIcons.map(({ name, text, value }) => {
+                const Icon = svgIcons[name]
+                return (
+                  <div class='flex gap-2 w-full'>
+                    <span class='rounded-full bg-[#d7efd9] p-2'>
+                      <Icon />
+                    </span>
+                    <div class='flex flex-col text-sm font-semibold'>
+                      <p>{text}</p>
+                      <p class='font-normal'>{value}</p>
                     </div>
                   </div>
                 )
@@ -82,36 +112,35 @@ const grid = [
   }
 </div>
 
-<!-- bg-[#e9edc9]  bg-[#add3a1]-->
-<!-- // const grid = [
-//   {
-//     name: 'bg-[#203c26] lg:col-span-1 col-span-2 text-white',
-//     description: `asdasdasd`
-//   },
-//   {
-//     name: 'bg-[#D6EFD8] text-6xl text-[#1A5319] font-semibold flex justify-center items-center ',
-//     description: `${info.name}`
-//   },
-//   {
-//     name: 'row-span-2 col-start-1 row-start-2 bg-[#EDF1D6]',
-//     description:
-//       'Creates a grid with 3 columnua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-//   },
-//   {
-//     name: 'lg:col-span-2 row-span-2 bg-[#4b8154]',
-//     description: 'Creates a grid with 4ssssadasdasdasddasdasdas'
-//   },
-//   {
-//     name: 'col-start-4 row-start-2 bg-[#80AF81]',
-//     description: 'Creates a grid with 5 columns'
-//   },
-//   {
-//     name: 'lg:col-span-2 lg:col-start-3 lg:row-start-1 col-span-1 shadow-sm bg-[#82b444] text-2xl font-semibold flex justify-center items-center',
-//     description: `${info.description}`,
-//     classDiv: 'text-white'
-//   },
-//   {
-//     name: 'lg:col-start-4 lg:row-start-3 bg-[#91C788]',
-//     description: 'Creates a grid with 9 columns'
-//   }
-// ] -->
+// {
+  //     name: 'bg-[#203c26] lg:col-span-1 col-span-2 text-white',
+  //     description: `asdasdasd`
+  //   },
+  //   {
+  //     name: 'bg-[#D6EFD8] text-6xl text-[#1A5319] font-semibold flex justify-center items-center ',
+  //     description: `${info.name}`
+  //   },
+  //   {
+  //     name: 'row-span-2 col-start-1 row-start-2 bg-[#EDF1D6]',
+  //     description:
+  //       'Creates a grid with 3 columnua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  //   },
+  //   {
+  //     name: 'lg:col-span-2 row-span-2 bg-[#4b8154]',
+  //     description: 'Creates a grid with 4ssssadasdasdasddasdasdas'
+  //   },
+  //   {
+  //     name: 'col-start-4 row-start-2 bg-[#80AF81]',
+  //     description: 'Creates a grid with 5 columns'
+  //   },
+  //   {
+  //     name: 'lg:col-span-2 lg:col-start-3 lg:row-start-1 col-span-1 shadow-sm bg-[#82b444] text-2xl font-semibold flex justify-center items-center',
+  //     description: `${info.description}`,
+  //     classDiv: 'text-white'
+  //   },
+  //   {
+  //     name: 'lg:col-start-4 lg:row-start-3 bg-[#91C788]',
+  //     description: 'Creates a grid with 9 columns'
+  //   }
+  // ] -->
+}
