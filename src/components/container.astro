@@ -24,8 +24,8 @@ const grid = [
       'Creates a grid with 3 columnua. Ut enim ad minin reprehenderit in votat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
   },
   {
-    name: 'row-span-2 row-start-3 bg-slate-100 shadow-sm',
-    description: 'Creates a grid with 4ssssadasd'
+    name: 'row-span-2 row-start-3 shadow-sm',
+    image: `${info.image}`
   },
   {
     name: 'row-start-3 bg-[#80AF81] flex justify-center items-center bg-[#82b444] text-white',
@@ -50,6 +50,13 @@ const grid = [
     grid.map((item) => {
       return (
         <div class={`${item.name} rounded-xl p-4`}>
+          {item.image && (
+            <img
+              src={`/public/${item.image}`}
+              alt='image'
+              class='w-full h-full object-contain'
+            />
+          )}
           {item.description && (
             <div class={`${item.classDiv} rounded-xl p-4`}>
               {item.description}
